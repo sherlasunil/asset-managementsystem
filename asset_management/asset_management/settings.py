@@ -85,13 +85,11 @@ WSGI_APPLICATION = 'asset_management.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://postgres:postgres@postgres:5432/assetdb'
+        default=os.environ.get("DATABASE_URL")
     )
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
 
