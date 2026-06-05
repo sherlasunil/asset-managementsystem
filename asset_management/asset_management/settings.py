@@ -28,11 +28,7 @@ SECRET_KEY = 'django-insecure-el_nnloeg&q$!7yc2!^z)=5=&p#rfa^b&a&mhsv_(ab8v02@gl
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [
-    'asset-management-system-2wz5.onrender.com',
-    'localhost',
-    '127.0.0.1',
-]
+ALLOWED_HOSTS = ['*']
 
 CSRF_TRUSTED_ORIGINS = [
     'https://asset-management-system-2wz5.onrender.com'
