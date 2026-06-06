@@ -107,9 +107,10 @@ const handleAdd = () => {
     })
 
     .catch((err) => {
-      console.log(err);
-      alert("Something went wrong ");
-    });
+  console.log(err.response?.data);
+  console.log(err);
+  alert(JSON.stringify(err.response?.data));
+});
   }
 };
 
