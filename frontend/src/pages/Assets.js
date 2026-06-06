@@ -19,7 +19,7 @@ function Assets() {
   // ✅ FETCH DATA
 useEffect(() => {
 
-  axios.get("http://127.0.0.1:8000/api/assets/", {
+  axios.get( "https://asset-management-system-2wz5.onrender.com/api/assets/", {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`
     }
@@ -45,7 +45,7 @@ const handleAdd = () => {
   if (editId) {
 
     axios.patch(
-      `http://127.0.0.1:8000/api/assets/${editId}/`,
+  `https://asset-management-system-2wz5.onrender.com/api/assets/${editId}/`,
       newAsset,
       {
         headers: {
@@ -80,8 +80,8 @@ const handleAdd = () => {
   else {
 
     axios.post(
-      "http://127.0.0.1:8000/api/assets/",
-      newAsset,
+  "https://asset-management-system-2wz5.onrender.com/api/assets/",
+  newAsset,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`
@@ -119,7 +119,7 @@ const handleDelete = (id) => {
   if (!window.confirm("Are you sure?")) return;
 
   axios.delete(
-    `http://127.0.0.1:8000/api/assets/${id}/`,
+  `https://asset-management-system-2wz5.onrender.com/api/assets/${id}/`,
     {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`
