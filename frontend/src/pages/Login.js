@@ -13,7 +13,10 @@ function Login() {
 
   const handleLogin = () => {
 
-    axios.post("http://127.0.0.1:8000/api/token/", formData)
+    axios.post(
+  "https://asset-management-system-2wz5.onrender.com/api/token/",
+  formData
+)
 
       .then((res) => {
 
