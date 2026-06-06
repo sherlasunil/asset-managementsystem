@@ -28,7 +28,9 @@ SECRET_KEY = 'django-insecure-el_nnloeg&q$!7yc2!^z)=5=&p#rfa^b&a&mhsv_(ab8v02@gl
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    'asset-management-system-2wz5.onrender.com'
+]
 
 CSRF_TRUSTED_ORIGINS = [
     'https://asset-management-system-2wz5.onrender.com'
@@ -87,11 +89,19 @@ WSGI_APPLICATION = 'asset_management.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get("DATABASE_URL")
-    )
-}
+DATABASE_URL = os.environ.get("DATABASE_URL")
+
+if DATABASE_URL:
+    DATABASES = {
+        "default": dj_database_url.parse(DATABASE_URL)
+    }
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
 
