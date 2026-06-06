@@ -20,20 +20,23 @@ function Login() {
 
       .then((res) => {
 
-        // Save JWT token
-        localStorage.setItem("token", res.data.access);
+  console.log("LOGIN RESPONSE:", res.data);
 
-        alert("Login Successful ✅");
+  localStorage.setItem("token", res.data.access);
 
-        navigate("/dashboard");
-      })
+  console.log("TOKEN SAVED:", localStorage.getItem("token"));
+
+  alert("Login Successful ✅");
+
+  navigate("/dashboard");
+})
 
       .catch((err) => {
 
-        console.log(err);
+  console.log("LOGIN ERROR:", err.response?.data);
 
-        alert("Invalid Username or Password ❌");
-      });
+  alert(JSON.stringify(err.response?.data));
+});
   };
 
   return (
