@@ -8,13 +8,12 @@ function Assets() {
 
   const[editId, setEditId]=useState(null);
 
-  const [newAsset, setNewAsset] = useState({
-    name: "",
-    type: "",
-    status: "",
-    serial_number: "",
-    purchase_date: ""
-  });
+const [newAsset, setNewAsset] = useState({
+  name: "",
+  type: "",
+  status: "",
+  purchase_date: "",
+});
 
   // ✅ FETCH DATA
 useEffect(() => {
@@ -22,7 +21,7 @@ useEffect(() => {
   axios.get( "https://asset-management-system-2wz5.onrender.com/api/assets/", {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`
-    }
+    } 
   })
 
   .then((res) => {
@@ -96,12 +95,11 @@ const handleAdd = () => {
       setShowModal(false);
 
       setNewAsset({
-        name: "",
-        type: "",
-        status: "",
-        serial_number: "",
-        purchase_date: ""
-      });
+  name: "",
+  type: "",
+  status: "",
+  purchase_date: "",
+});
 
       alert("Asset added successfully ");
     })
@@ -218,15 +216,27 @@ const handleEdit = (asset) => {
           />
 
           <input
-            className="form-control mb-2"
-            placeholder="Status"
-            value={newAsset.status}
-            onChange={(e) =>
-              setNewAsset({ ...newAsset, status: e.target.value })
-            }
-          />
+  className="form-control mb-2"
+  placeholder="Status"
+  value={newAsset.status}
+  onChange={(e) =>
+    setNewAsset({ ...newAsset, status: e.target.value })
+  }
+/>
 
-          <button className="btn btn-success me-2" onClick={handleAdd}>
+<input
+  type="date"
+  className="form-control mb-2"
+  value={newAsset.purchase_date || ""}
+  onChange={(e) =>
+    setNewAsset({
+      ...newAsset,
+      purchase_date: e.target.value
+    })
+  }
+/>
+
+<button className="btn btn-success me-2" onClick={handleAdd}>
             {editId ? "Update" : "Save"}
           </button>
 
